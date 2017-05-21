@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp" ng-controller="InCtrl">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <meta name="keywords" content="Reservas, Hoteles, Booking">
+    <meta name="description" content="Reservas de Hoteles,Booking, Hoteles baratos en todo el Peru,Choose rooms and travel to Peru more easy">
+<!--libs-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Lato:300|Raleway" rel="stylesheet">
+<script type="text/javascript" src='./js/jquery.js'></script>
+<script type="text/javascript" src='./js/bootstrap.js'></script>
+<script type="text/javascript" src='./js/in.js'></script>
+
+<link rel="stylesheet" href="./css/bootstrap.css">
+
+
+<body>
+
+<!-- 
+<nav class="navbar sticky-top navbar-light ">
+  <a class="navbar-brand" href="#">Ania</a>
+</nav>
+ -->
+<br>
+
+				<div class='container'>
+
+					<div class="row">
+
+					<div class="col-6"  ng-click="almacen()">
+
+					<div ng-class="{activo: alm ,desactivo:!alm}">
+
+					<h3>Movimientos</h3>
+
+					</div>
+					
+					</div>
+
+				<!-- 	<div class="col-3"  ng-click="torre()">
+
+					<div ng-class="{activo: tor ,desactivo:!tor}">
+					
+					<h1>Torre</h1>
+					
+					</div>
+
+
+					</div>
+
+
+					<div class="col-3" ng-click="centro()">
+
+					<div ng-class="{activo: cen ,desactivo:!cen}">
+
+					<h1>Centro</h1>
+
+					</div>
+
+					</div> -->
+
+					<div class="col-6" >
+
+					<div class='desactivo'><a href='reporte.html'>
+
+					<h3>Reportes</h3></a>
+
+					</div>
+
+					</div>
+
+
+				</div>
+				<br>
+
+
+				<section ng-show='alm'>
+
+				<div class='row' >
+						
+						<div class="col-6" ng-click="entrada()">
+							
+							<div ng-class="{activoin: ent ,desactivoin:!ent}">
+
+							Entrada
+								
+							</div>
+						</div>
+						
+
+						<div class="col-6" ng-click="salida()">
+
+							<div ng-class="{activoin: sal ,desactivoin:!sal}">
+								Salida
+							</div>
+							
+
+
+						</div>
+
+
+				</div>
+				<br>
+
+				<div>
+
+				
+				<form ng-submit='enviar(ingreso)' ng-show='form' style="border:1px solid #59569D; padding:20px; border-radius:6px;">
+				<div style="text-align:right;"><a href='#' ng-click='form=false' ><img src='img/error.png'></a></div>
+
+				<div class="row">
+
+				<div class="col-6">
+
+				<label>Modelo</label>
+				<select class='form-control' ng-options="item as item.nombre for item in modelos track by item.id" ng-model="ingreso.modelo"><option></option></select>
+				<br>
+
+				</div>
+
+				<div class="col-6">
+
+				<label>Color</label>
+				<select required class='form-control' ng-options="item as item.nombre for item in colores track by item.id" ng-model="ingreso.color"><option></option></select>
+				<br>
+				
+			
+				</div>
+
+				</div>
+
+				<div class="row">
+					
+					<div class="col-6">
+
+						<label>Talla</label>
+						<select required class='form-control' ng-options="item as item.nombre for item in tallas track by item.id" ng-model="ingreso.talla"><option></option></select>
+						<br>
+
+					</div>
+
+					<div class="col-6">
+
+						<label>Cantidad</label>
+						<input required type="number" class='form-control' name="" ng-model='ingreso.cantidad'>
+						<br>
+
+					</div>
+
+					<div class="col-12" ng-show='ent'>
+
+						<label>Proveedor</label>
+						<select  class='form-control' ng-options="item as item.nombre for item in proveedores track by item.id" ng-model="ingreso.proveedor"><option></option></select>
+
+						<br>
+					</div>
+
+					<div class="col-12" ng-show='sal'>
+
+						<label>Ubicacion</label>
+						<select  class='form-control' ng-options="item as item.nombre for item in ubicacion track by item.id" ng-model="ingreso.ubicacion"><option></option></select>
+
+						<br>
+					</div>
+
+
+				</div>
+
+				<button type='submit' class='form-control'>Guardar</button>
+
+
+				
+
+				
+
+				
+
+				</div>
+
+
+				
+	
+				</form>
+
+				</div>
+
+				</section>
+
+				<br>
+
+				<div class="container">
+					
+						<ul class='list-group'>
+					<li class='list-group-item' ng-class="{listin: l.tipo=='Entrada',listout:l.tipo=='Salida'}" ng ng-repeat="l in listado">
+			
+					<div style='width: 60%'>
+					
+					{{l.cantidad}}	
+					{{l.modelo__nombre}}	
+					{{l.talla__nombre}}	
+					{{l.color__nombre}}
+					
+
+					</div>
+
+				<div style='width: 20%'>
+
+
+					<span ng-if="l.tipo=='Entrada'">{{l.proveedor__nombre}}</span> 
+					<span ng-if="l.tipo=='Salida'">{{l.local__nombre}}</span>
+
+				</div>
+					<div style='width: 20%; '  ng-click='eliminap(l.id)'>
+
+					<a  class='btn btn-primary btn-sm' ><img class='img-fluid' src='img/garbage.png'></a>
+					
+					</div>
+
+					
+					
+							
+					    </li>
+
+						</ul>
+
+
+				</div>
+
+				
+
+		
+
+
+
+			
+				
+
+
+
+			<!-- 	<div class="form-group">
+				<label for="nombre">Ubicacion</label>
+				<select class='form-control' ng-options="item as item.label for item in items track by item.id" ng-model="selected"></select>
+				</div>
+
+				<div class="form-group">
+				<label for="dni">Modelo</label>
+				<select class='form-control' ng-options="item as item.label for item in items track by item.id" ng-model="selected">
+				</div>
+
+				<div class="form-group">
+				<label for="dni">Talla</label>
+				<select class='form-control' ng-options="item as item.label for item in items track by item.id" ng-model="selected">
+				</div>
+
+				<div class="form-group">
+				<label for="dni">Color</label>
+				<select class='form-control' ng-options="item as item.label for item in items track by item.id" ng-model="selected">
+				</div>
+ -->
+
+
+
+
+
+				</div>
+
+
+</body>
+
+
+</html>
+
+

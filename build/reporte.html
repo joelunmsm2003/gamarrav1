@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="myApp" ng-controller="InCtrl">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <meta name="keywords" content="Reservas, Hoteles, Booking">
+    <meta name="description" content="Reservas de Hoteles,Booking, Hoteles baratos en todo el Peru,Choose rooms and travel to Peru more easy">
+<!--libs-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link href="https://fonts.googleapis.com/css?family=Lato:300|Raleway" rel="stylesheet">
+<script type="text/javascript" src='js/jquery.js'></script>
+<script type="text/javascript" src='js/bootstrap.js'></script>
+<script type="text/javascript" src='js/in.js'></script>
+
+
+
+
+<body>
+
+
+<br>
+
+				<div class='container'>
+
+				<div class="row">
+
+					<div class="col-6">
+
+					<div class='desactivo'><a href="index.html">
+
+					<h3>Movimientos</h3></a>
+
+					</div>
+					
+					</div>
+
+				<!-- 	<div class="col-3"  ng-click="torre()">
+
+					<div ng-class="{activo: tor ,desactivo:!tor}">
+					
+					<h1>Torre</h1>
+					
+					</div>
+
+
+					</div>
+
+
+					<div class="col-3" ng-click="centro()">
+
+					<div ng-class="{activo: cen ,desactivo:!cen}">
+
+					<h1>Centro</h1>
+
+					</div>
+
+					</div> -->
+
+					<div class="col-6" >
+
+					<div class='desactivo'><a href='reporte.html'>
+
+					<h3>Reportes</h3></a>
+
+					</div>
+
+					</div>
+
+
+				</div>
+				<br>
+
+				<br>
+
+
+
+<div class="row">
+	<div class="col-6"><div class="btn-group" role="group" aria-label="Basic example">
+  <a href='http://192.168.1.40:1000/entrada' class="btn btn-secondary">Entrada</a>
+  <a href='http://192.168.1.40:1000/salida' class="btn btn-secondary">Salida</a>
+
+</div></div>
+	<div class="col-6"><div class="btn-group" role="group" aria-label="Basic example">
+
+  <a class="btn btn-secondary" ng-click='trae(5)'>Almacen</a>
+  <a class="btn btn-secondary" ng-click='trae(2)'>Torre</a>
+  <a class="btn btn-secondary" ng-click='trae(3)'>Centro</a>
+
+</div></div>
+</div>
+
+
+
+<br>
+
+<h1>{{titulo}}</h1>
+
+
+
+				
+
+			<div id="accordion" role="tablist" aria-multiselectable="true" >
+
+				
+
+						<div class="card" >
+
+
+									<ul class="list-group">
+								<li class="list-group-item" >
+
+									<div style='width: 30%;'><a  class="btn btn-secondary" >Color</a></div>
+									<div style='width: 10%;'><a  class="btn btn-secondary" > Total</a></div>
+
+									<div style='width: 50%; text-align: right;'>
+									<div class="btn-group" role="group" aria-label="Basic example">
+
+
+
+
+									<a  class="btn btn-primary" >S</a>
+									<a  class="btn btn-primary" >M</a>
+									<a  class="btn btn-primary" >L </a>
+									<a  class="btn btn-primary" >XL </a>
+									</div>
+									</div>
+
+
+								</li>
+
+							</ul>
+
+							
+
+									
+
+							<div ng-repeat='m in totalxubicacion'>
+						    <div class="card-header" role="tab" id="headingOne">
+						      <h5 class="mb-0">
+						        <a data-toggle="collapse" data-parent="#accordion"  href="#data{{m.id}}" aria-expanded="true" aria-controls="collapseOne">
+						          
+									<div class="row">
+										<div class="col-6">{{m.nombre}}</div>
+										<div class="col-6">{{m.totalmodelo}}</div>
+									</div>
+						           
+						        </a>
+						      </h5>
+						    </div>
+
+						    <div id="data{{m.id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+						      <div class="card-block">
+
+
+
+							<ul class="list-group">
+								<li class="list-group-item" ng-repeat='c in m.info'>
+									
+								
+
+									<div style='width: 30%;'><a  class="btn btn-secondary" >{{c.color__nombre}} </a></div>
+									<div style='width: 10%;'><a  class="btn btn-secondary" > {{c.cantidad}}</a></div>
+
+									<div style='width: 50%; text-align: right;'>
+									<div class="btn-group" role="group" aria-label="Basic example">
+
+
+
+
+									<a  class="btn btn-secondary" >{{c.caracteristica[0].total}}</a>
+									<a  class="btn btn-secondary" >{{c.caracteristica[1].total}}</a>
+									<a  class="btn btn-secondary" >{{c.caracteristica[2].total}} </a>
+									<a  class="btn btn-secondary" >{{c.caracteristica[3].total}} </a>
+									</div>
+									</div>
+							
+
+									
+
+									 
+
+
+
+								</li>
+
+							</ul>
+
+						    <!--   <table class="table  table-responsive">
+								  <thead>
+								    <tr>
+								
+								      <th>Color</th>
+								      <th>S</th>
+								      <th>M</th>
+								      <th>L</th>
+								      <th>XL</th>
+								      <th>Total</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+
+
+								    <tr ng-repeat='d in m.info'>
+
+								    	<td>{{d.color__nombre}}</td>
+								 
+								      <td>{{d.caracteristica[0].total}}</td>
+								      <td>{{d.caracteristica[1].total}}</td>
+								      <td>{{d.caracteristica[2].total}}</td>
+								      <td>{{d.caracteristica[3].total}}</td>
+								      <td>{{d.cantidad}}</td> 
+								      
+								    </tr>
+								   
+								  </tbody>
+								</table>
+ -->
+
+							      </div>
+							    </div>
+							  </div>
+						  </div>
+
+							
+				</div>
+
+
+</body>
+
+
+</html>
+
+
