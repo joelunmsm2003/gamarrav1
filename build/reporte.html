@@ -30,7 +30,7 @@
 
 					<div class='desactivo'><a href="index.html">
 
-					<h3>Movimientos</h3></a>
+					<h5>Movimientos</h5></a>
 
 					</div>
 					
@@ -41,7 +41,7 @@
 
 					<div class='desactivo'><a href='reporte.html'>
 
-					<h3>Reportes</h3></a>
+					<h5>Reportes</h5></a>
 
 					</div>
 
@@ -51,8 +51,6 @@
 				</div>
 				<br>
 
-				<br>
-
 
 
 <div class="row">
@@ -60,7 +58,7 @@
   <a href='http://192.168.1.40:1000/entrada' class="btn btn-secondary">Entrada</a>
   <a href='http://192.168.1.40:1000/salida' class="btn btn-secondary">Salida</a>
 
-</div></div>
+</div></div><br></br>
 	<div class="col-12"><div class="btn-group" role="group" aria-label="Basic example">
 
   <a class="btn btn-secondary" ng-click='trae(5)'>Almacen</a>
@@ -72,7 +70,6 @@
 
 
 
-<br>
 
 <h1>{{titulo}}</h1>
 
@@ -90,8 +87,8 @@
 									<ul class="list-group">
 								<li class="list-group-item" >
 
-									<div style='width: 30%;'><a  class="btn btn-secondary" >Color</a></div>
-									<div style='width: 10%;'><a  class="btn btn-secondary" > Total</a></div>
+									<div style='width: 30%;'><a  class="btn btn-secondary btn-sm" >Color</a></div>
+									<div style='width: 10%;'><a  class="btn btn-secondary btn-sm" > Total</a></div>
 
 									<div style='width: 50%; text-align: right;'>
 									<div class="btn-group" role="group" aria-label="Basic example">
@@ -99,10 +96,10 @@
 
 
 
-									<a  class="btn btn-primary" >S</a>
-									<a  class="btn btn-primary" >M</a>
-									<a  class="btn btn-primary" >L </a>
-									<a  class="btn btn-primary" >XL </a>
+									<a  class="btn btn-primary btn-sm" >S</a>
+									<a  class="btn btn-primary btn-sm" >M</a>
+									<a  class="btn btn-primary btn-sm" >L </a>
+									<a  class="btn btn-primary btn-sm" >XL </a>
 									</div>
 									</div>
 
@@ -120,7 +117,7 @@
 						      <h5 class="mb-0">
 						        <a data-toggle="collapse" data-parent="#accordion"  href="#data{{m.id}}" aria-expanded="true" aria-controls="collapseOne">
 						          
-									<div class="row">
+									<div class="row no-gutters">
 										<div class="col-6">{{m.nombre}}</div>
 										<div class="col-6">{{m.totalmodelo}}</div>
 									</div>
@@ -134,37 +131,31 @@
 
 
 
-							<ul class="list-group">
-								<li class="list-group-item" ng-repeat='c in m.info'>
+								<div class='row no-gutters' ng-repeat='c in m.info'>
 									
 								
 
-									<div style='width: 30%;'><a  class="btn btn-secondary" >{{c.color__nombre}} </a></div>
-									<div style='width: 10%;'><a  class="btn btn-secondary" > {{c.cantidad}}</a></div>
+									<div style='width: 30%;'><a  class="btn btn-secondary btn-sm" >{{c.color__nombre}} </a></div>
+									<div style='width: 10%;'><a  class="btn btn-secondary btn-sm" > {{c.cantidad}}</a></div>
 
 									<div style='width: 50%; text-align: right;'>
 									<div class="btn-group" role="group" aria-label="Basic example">
 
 
-
-
-									<a  class="btn btn-secondary" >{{c.caracteristica[0].total}}</a>
-									<a  class="btn btn-secondary" >{{c.caracteristica[1].total}}</a>
-									<a  class="btn btn-secondary" >{{c.caracteristica[2].total}} </a>
-									<a  class="btn btn-secondary" >{{c.caracteristica[3].total}} </a>
+									<a  class="btn btn-secondary btn-sm" >{{c.caracteristica[0].total}}</a>
+									<a  class="btn btn-secondary btn-sm" >{{c.caracteristica[1].total}}</a>
+									<a  class="btn btn-secondary btn-sm" >{{c.caracteristica[2].total}} </a>
+									<a  class="btn btn-secondary btn-sm" >{{c.caracteristica[3].total}} </a>
 									</div>
 									</div>
 							
+							</div>
 
 									
 
 									 
 
 
-
-								</li>
-
-							</ul>
 
 						    <!--   <table class="table  table-responsive">
 								  <thead>
