@@ -3,6 +3,8 @@ var app = angular.module('myApp', []);
 
 app.controller('InCtrl', function($scope,$http,$location,$filter) {
 
+
+
     $scope.firstName = "John";
     $scope.lastName = "Doe";
 
@@ -348,6 +350,9 @@ app.controller('InCtrl', function($scope,$http,$location,$filter) {
 
           }).
           success(function(data) {
+
+
+            alert('Dato guardado')
 
 
             $http.get(host+'listado').success(function(data) {
