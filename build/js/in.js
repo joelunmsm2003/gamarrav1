@@ -6,7 +6,7 @@ app.controller('InCtrl', function($scope,$http,$location,$filter) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
 
-    host='http://192.168.1.40:1000/'
+    host='http://codigito.com:1000/'
 
 
     $scope.tallas = [{
